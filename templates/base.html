@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}
+  	Little Lemon
+  {% endblock %}</title>
+</head>
+<body>
+
+{% block header %}
+  {# Header #}
+{% include 'header.html' %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer %}
+  {# Footer #}
+{% include 'footer.html' %}
+{% endblock %}
+
+</body>
+</html>
