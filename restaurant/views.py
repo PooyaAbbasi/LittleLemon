@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import *
-from django.views.generic import ListView, DetailView
-
+from django.views.generic import ListView, DetailView, CreateView
+from .forms import BookingForm
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -22,3 +23,25 @@ class MenuDetail(DetailView):
     model = Menu
     template_name = 'restaurant/menu-item-detail.html'
     context_object_name = 'menu'
+
+
+class BookingCreateView(CreateView):
+    model = Booking
+    template_name = 'restaurant/booking.html'
+    form_class = BookingForm
+    context_object_name = 'booking_form'
+    success_url = reverse_lazy('restaurant:successful-booking')
+
+
+def successful_booking(request):
+
+    return render(request, 'restaurant/successful-booking.html')
+
+
+class BookingDetail(DetailView):
+    model = Booking
+    template_name = 'restaurant/booking-detail.html'
+    context_object_name = 'booking'
+
+
+
