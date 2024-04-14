@@ -44,4 +44,8 @@ class BookingDetail(DetailView):
     context_object_name = 'booking'
 
 
+class BookingList(ListView):
+    model = Booking
+    context_object_name = 'booking_list'
+
 

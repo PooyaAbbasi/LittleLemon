@@ -9,5 +9,7 @@ urlpatterns = [
     path('menu/<int:pk>/', MenuDetail.as_view(), name='menu-detail'),
     path('booking/', BookingCreateView.as_view(), name='booking'),
     path('successful-booking/', successful_booking, name='successful-booking'),
+    path('booking-details/<int:pk>/', BookingDetail.as_view(), name='booking-detail'),
+    path('booking-list/', BookingList.as_view(), name='booking-list'),
 
 ]

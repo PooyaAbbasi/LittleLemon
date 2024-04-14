@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Booking list 
+{% endblock %}
+
+
+{% block content %}
+	{% for booking in booking_list %}
+    <a href="{% url 'restaurant:booking-detail' pk=booking.pk %}"><p>
+      {{ forloop.counter }}. first name: {{ booking.first_name }} , Last name: {{ booking.last_name }}
+    </p></a>
+	{% endfor %}
+	
+{% endblock %}
