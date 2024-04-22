@@ -12,4 +12,8 @@ urlpatterns = [
     path('booking-details/<int:pk>/', BookingDetail.as_view(), name='booking-detail'),
     path('booking-list/', BookingList.as_view(), name='booking-list'),
 
+    path('login/', CustomLoginView.as_view(), name='login'),
+    path('logout/', CustomLogoutView.as_view(), name='logout'),
+
+
 ]

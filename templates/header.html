@@ -5,6 +5,21 @@
   <img src="{% static 'restaurant/littlelemon_header.png' %}" alt="little lemon header">
 </div>
 
+<div>
+  <p> is anonymous : {{ user.is_anonymous }} is authenticated : {{ user.is_authenticated }}</p>
+  {% if user.is_authenticated  %}
+  	<span> User: {{ user.username }}</span><br>
+    
+    <form method="post" action="{% url 'restaurant:logout' %}" >
+      {% csrf_token %}
+      <input type="submit" value="Logout">
+{#      <input type="hidden" name="next" value="next">#}
+    </form>
+  {% else %}
+    <a href="{% url 'restaurant:login' %}"> Login </a>
+  {% endif %}
+</div>
+
 <div align="center">
   <nav>
     <ul>

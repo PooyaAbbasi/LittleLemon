@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Login page
+{% endblock %}
+
+{% block header %}
+  <h2> Login page  </h2>
+{% endblock %}
+
+{% block content %}
+{#	login form #}
+  <div align="center">
+    
+    {# next page logic when user redirected to login page  #}
+    {% if next %}
+    	{% if user.is_authenticated %}
+    		<p> Your account doesn't have permission to access this page </p>
+      {% else %}
+        <p> please log in to visit the page </p>
+    	{% endif %}
+    {% endif %} 
+  
+    <form method="post" action="{% url 'restaurant:login' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="login">
+      <input type="hidden" name="next" value="{{ next }}">
+    </form>
+    
+    <p>
+      {{ next }}
+    </p>
+  </div>
+{% endblock %}
